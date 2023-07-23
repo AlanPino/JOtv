@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:paddingHorizontal="20dp">
+
+        <Button
+            android:id="@+id/btnChangeList"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/items"
+            android:padding="0dp"
+            android:text="fuente 1"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOtv"
+            android:textColor="@color/items"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:src="@drawable/options"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/items" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vdBox"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/lighten">
+
+        <org.videolan.libvlc.util.VLCVideoLayout
+            android:id="@+id/vdChannel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:keepScreenOn="true"
+            app:layout_constraintBottom_toBottomOf="@id/vdBox"
+            app:layout_constraintEnd_toEndOf="@id/vdBox"
+            app:layout_constraintStart_toStartOf="@id/vdBox"
+            app:layout_constraintTop_toTopOf="@id/vdBox">
+
+            <View
+                android:id="@+id/darken"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shadow_inner"
+                android:visibility="gone" />
+
+        </org.videolan.libvlc.util.VLCVideoLayout>
+
+
+        <ImageButton
+            android:id="@+id/btnVolumeOn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/volume_on"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/items" />
+
+        <ImageButton
+            android:id="@+id/btnVolumeOff"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/volume_off"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/items" />
+
+        <ImageButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/fullscreen"
+            android:visibility="gone"
+
+            app:layout_constraintBottom_toBottomOf="@id/vdChannel"
+            app:layout_constraintEnd_toEndOf="@id/vdChannel"
+            app:tint="@color/items" />
+
+        <ImageButton
+            android:id="@+id/btnOutFullscreen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/out_fullscreen"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/vdChannel"
+            app:layout_constraintEnd_toEndOf="@id/vdChannel"
+            app:tint="@color/items" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminateTint="@color/items"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-8dp"
+        android:orientation="horizontal" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChannels"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tvMode"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/lighten"
+            android:backgroundTint="@color/transparent"
+            android:padding="0dp"
+            android:text="Tv"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/movieMode"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/transparent"
+            android:padding="0dp"
+            android:text="Peliculas"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
